@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/10 03:16:22 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/11 02:32:08 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "../Libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "fcntl.h"
-# include "stdlib.h"
-# include "stdio.h"
+# include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 # define EMPTY '0'
 # define WALL '1'
@@ -25,13 +25,79 @@
 # define EXIT 'E'
 # define PLAYER 'P'
 
-#define TILE_SIZE 32
+# define TILE_SIZE 32
 
-# define KEY_w 87
+# define KEY_W 87
 # define KEY_A 65
 # define KEY_S 83
 # define KEY_D 68
 # define KEY_ESC 256
 
+# define ERR_ARGS "Error: Incorrect number of arguments\n"
+# define ERR_FILE "Error: Unable to open map file\n"
+# define ERR_EXTENSION "Error: The map must have a .ber extension\n"
+# define ERR_MAP_INVALID "Error: Invalid map\n"
+# define ERR_MAP_NOT_RECTANGULAR "Error: The map must be rectangular\n"
+# define ERR_MAP_NOT_SURROUNDED "Error: The map must be surrounded by walls\n"
+# define ERR_MAP_CHARS "Error: Invalid characters on the map\n"
+# define ERR_MAP_PLAYER "Error: There must be exactly one player (P)\n"
+# define ERR_MAP_EXIT "Error: There must be at least one output (E)\n"
+# define ERR_MAP_COLLECTIBLE \
+	"Error: There must be at least one collectible (C)\n"
+# define ERR_PATH "Error: There is no valid way to complete the game\n"
+# define ERR_MEMORY "Error: Memory allocation failure\n"
+# define ERR_MLX "Error: Failure to initialize MLX42\n"
+# define ERR_TEXTURE "Error: Could not load a texture\n"
+
+typedef struct s_position
+{
+	int	x;
+	int	y;
+}	t_position;
+
+typedef struct s_map
+{
+	char		**grid;
+	int			width;
+	int			height;
+	int			collectibles;
+	int			exits;
+	int			players;
+	t_position	player_pos;	
+}	t_map;
+
+typedef struct s_textures
+{
+	mlx_texture_t	*wall;
+	mlx_texture_t	*empty;
+	mlx_texture_t	*collectible;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*player;
+}	t_textures;
+
+typedef struct s_images
+{
+	mlx_image_t	*wall;
+	mlx_image_t	*empty;
+	mlx_image_t	*collectible;
+	mlx_image_t	*exit;
+	mlx_image_t	*player;
+}	t_images;
+
+typedef struct s_game
+{
+	mlx_t		*mlx;
+	t_map		map;
+	t_textures	textures;
+	t_images	images;
+	int			moves;
+	int			collected;
+	int			game_over;	
+}	t_game;
+
+t_game	*init_game(void);
+int		init_window(t_game *game);
+int		load_textures(t_game *game);
+int		create_images(t_game *game);
 
 #endif
