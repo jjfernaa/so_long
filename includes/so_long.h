@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/11 02:32:08 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/13 03:08:27 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../Libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
+# include "../Get_Next_Line/get_next_line.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -99,5 +100,14 @@ t_game	*init_game(void);
 int		init_window(t_game *game);
 int		load_textures(t_game *game);
 int		create_images(t_game *game);
+int		parse_map(t_game *game, char *file_path);
+int		read_map_file(t_game *game, char *file_path);
+int		check_map_dimensions(t_game *game);
+int		validate_map_element(t_game *game);
+int		add_line_to_grid(t_game *game, char *line);
+void	remove_newline_if_exists(char *line);
+void	count_elements(t_game *game, int x, int y, char c);
+int		read_lines(t_game *game, int fd);
+char	*get_next_line(int fd);
 
 #endif
