@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/13 03:08:27 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/14 02:57:09 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,15 @@ void	remove_newline_if_exists(char *line);
 void	count_elements(t_game *game, int x, int y, char c);
 int		read_lines(t_game *game, int fd);
 char	*get_next_line(int fd);
+int		check_map_validity(t_game *game);
+int		is_surrounded_by_walls(t_game *game);
+char	**duplicate_map(t_map *map);
+int		flood_fill(char **temp_map, int x, int y, t_map *map);
+int		has_valid_path(t_game *game);
+void	render_map(t_game *game);
+void	render_tile(t_game *game, int x, int y);
+void	update_player_position(t_game *game, int new_x, int new_y);
+void	update_moves_counter(t_game *game);
+
 
 #endif

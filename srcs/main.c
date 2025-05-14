@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:31 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/11 02:52:30 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/14 02:58:52 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int argc, char **argv)
 	if (!setup_game(game, argv[1]))
 		return (1);
 	render_map(game);
-	mlx_key_hook(game->mlx, &hook_keys, game)
+	mlx_key_hook(game->mlx, &hook_keys, game);
 	mlx_loop(game->mlx);
 	clean_exit(game);
 	return (0);
