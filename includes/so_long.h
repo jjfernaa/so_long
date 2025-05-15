@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/14 02:57:09 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/15 03:09:02 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,15 @@ void	render_map(t_game *game);
 void	render_tile(t_game *game, int x, int y);
 void	update_player_position(t_game *game, int new_x, int new_y);
 void	update_moves_counter(t_game *game);
-
+void	hook_keys(mlx_key_data_t keydata, void *param);
+int		move_player(t_game *game, int dx, int dy);
+int		check_collision(t_game *game, int x, int y);
+void	collect_item(t_game *game, int x, int y);
+int		check_exit(t_game *game);
+void	free_map(t_map *map);
+void	free_textures(t_textures *textures);
+int		is_valid_map_char(char c);
+int		check_file_extension(char *file_path, char *extension);
+void	count_map_elements(t_game *game);
 
 #endif
