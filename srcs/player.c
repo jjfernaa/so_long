@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:38 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 02:15:03 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/15 04:00:24 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	hook_keys(mlx_key_data_t keydata, void *param)
 		else if (keydata.key == KEY_D)
 			move_player(game, 1, 0);
 		else if (keydata.key == KEY_ESC)
-			move_close_window(game->mlx);
+			mlx_close_window(game->mlx);
 	}
 }
 

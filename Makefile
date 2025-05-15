@@ -32,11 +32,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-$(MLX42)
+$(MLX42):
 	cmake -B $(MLX42_DIR)/bluid $(MLX42_DIR)
-	cmake --bluid $(MLX42_DIR)/bluid -j4
+	cmake --build $(MLX42_DIR)/bluid -j4
 
-Clean:
+clean:
 	rm -rf $(OBJ_DIR)
 	make -C $(LIBFT_DIR) clean
 	rm -rf $(MLX42_DIR)/bluid

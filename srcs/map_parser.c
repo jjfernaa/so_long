@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:36 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/13 01:34:14 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/15 03:49:53 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	parse_map(t_game *game, char *file_path)
 		ft_putstr_fd(ERR_MAP_NOT_RECTANGULAR, 2);
 		return (0);
 	}
-	if (!validate_map_elements(game))
+	if (!validate_map_element(game))
 		return (0);
 	return (1);
 }
@@ -80,7 +80,7 @@ int	validate_map_element(t_game *game)
 		while (++x < game->map.width)
 		{
 			c = game->map.grid[y][x];
-			if (!is_validate_map_char(c))
+			if (!is_valid_map_char(c))
 			{
 				ft_putstr_fd(ERR_MAP_CHARS, 2);
 				return (0);

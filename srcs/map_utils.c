@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 01:34:48 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/13 02:36:27 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/15 03:55:55 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	remove_newline_if_exists(char *line)
 
 	len = ft_strlen(line);
 	if (len > 0 && line[len - 1] == '\n')
-		line[len - 1] == '\0';
+		line[len - 1] = '\0';
 }
 
 void	count_elements(t_game *game, int x, int y, char c)
@@ -83,7 +83,7 @@ int	read_lines(t_game *game, int fd)
 	return (1);
 }
 
-static int	check_element_counts(t_game *game)
+int	check_element_counts(t_game *game)
 {
 	if (game->map.players != 1)
 	{

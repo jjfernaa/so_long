@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:41 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/14 02:54:02 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/15 04:02:12 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	render_tile(t_game *game, int x, int y)
 	int	pixel_x;
 	int	pixel_y;
 
-	pixel_x = TILE_SIZE;
-	pixel_y = TILE_SIZE;
+	pixel_x = x * TILE_SIZE;
+	pixel_y = y * TILE_SIZE;
 	mlx_image_to_window(game->mlx, game->images.empty, pixel_x, pixel_y);
 	if (game->map.grid[y][x] == WALL)
 		mlx_image_to_window(game->mlx, game->images.wall, pixel_x, pixel_y);

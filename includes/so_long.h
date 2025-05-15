@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 03:09:02 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/15 03:56:31 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,5 +128,6 @@ void	free_textures(t_textures *textures);
 int		is_valid_map_char(char c);
 int		check_file_extension(char *file_path, char *extension);
 void	count_map_elements(t_game *game);
+int		check_element_counts(t_game *game);
 
 #endif
