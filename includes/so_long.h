@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/16 16:14:32 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/16 18:26:50 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../Libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "../Get_Next_Line/get_next_line.h"
+# include "../GNL/get_next_line.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
