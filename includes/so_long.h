@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/16 03:28:17 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/16 16:14:32 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ int		check_element_counts(t_game *game);
 void	free_game(t_game *game);
 void	clean_exit(t_game *game);
 void	print_error(char *error_message);
+void	handle_close(void *param);
 
 #endif

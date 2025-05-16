@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:26 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/16 03:28:10 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/16 16:15:31 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,9 @@ void	print_error(char *error_message)
 {
 	ft_putstr_fd(error_message, 2);
 }
+
+void	handle_close(void *param)
+{
+	clean_exit((t_game *)param);
+}
+
