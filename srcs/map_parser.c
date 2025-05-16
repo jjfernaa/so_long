@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:36 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 03:49:53 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/16 03:36:40 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	read_map_file(t_game *game, char *file_path)
 	}
 	game->map.height = 0;
 	game->map.grid = NULL;
-	if (!read_map_file(game, fd))
+	if (!read_map_file(game, file_path))
 		return (0);
 	close (fd);
 	if (game->map.height == 0)

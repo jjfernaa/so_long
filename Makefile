@@ -1,6 +1,6 @@
 NAME = so_long
 
-CC = CC
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = srcs
@@ -8,8 +8,12 @@ OBJ_DIR = obj
 INC_DIR = includes
 LIBFT_DIR = libft
 MLX42_DIR = MLX42
+GNL_DIR = Get_Next_Line
 
-SRC_FILES = main.c init.c map_parser.c map_checker.c render.c player.c utils.c error.c
+SRC_FILES = main.c init.c map_parser.c map_checker.c render.c player.c utils.c error.c \
+	map_utils.c \
+	$(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
+	
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 
