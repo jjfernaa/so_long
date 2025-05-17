@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:26 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/16 16:15:31 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/17 02:08:14 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_game(t_game *game)
 void	clean_exit(t_game *game)
 {
 	if (!game)
-		return ;
+		exit(1);
 	if (game->mlx)
 	{
 		if (game->images.wall)
@@ -41,6 +41,7 @@ void	clean_exit(t_game *game)
 	}
 	free_map(&game->map);
 	free(game);
+	exit(0);
 }
 
 void	print_error(char *error_message)
@@ -52,4 +53,3 @@ void	handle_close(void *param)
 {
 	clean_exit((t_game *)param);
 }
-

@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 01:34:48 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 03:55:55 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/17 00:21:04 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,15 @@ int	read_lines(t_game *game, int fd)
 		if (ft_strlen(line) <= 1 && line[0] == '\n')
 		{
 			free(line);
+			line = get_next_line(fd);
+			continue ;
 		}
-		else
+		remove_newline_if_exists(line);
+		if (!add_line_to_grid(game, line))
 		{
-			remove_newline_if_exists(line);
-			if (!add_line_to_grid(game, line))
-			{
-				free(line);
-				close(fd);
-				return (0);
-			}
+			free(line);
+			close(fd);
+			return (0);
 		}
 		line = get_next_line(fd);
 	}

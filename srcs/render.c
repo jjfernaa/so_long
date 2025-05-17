@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:41 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 04:02:12 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/17 02:35:41 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,15 @@ void	render_tile(t_game *game, int x, int y)
 
 void	update_player_position(t_game *game, int new_x, int new_y)
 {
+	mlx_image_to_window(game->mlx, game->images.empty, \
+		game->map.player_pos.x * TILE_SIZE, \
+		game->map.player_pos.y * TILE_SIZE);
+	mlx_image_to_window(game->mlx, game->images.player, new_x * TILE_SIZE, \
+		new_y * TILE_SIZE);
 	game->map.grid[game->map.player_pos.y][game->map.player_pos.x] = EMPTY;
 	game->map.grid[new_y][new_x] = PLAYER;
 	game->map.player_pos.x = new_x;
 	game->map.player_pos.y = new_y;
-	mlx_delete_image(game->mlx, game->images.player);
-	game->images.player = \
-		mlx_texture_to_image(game->mlx, game->textures.player);
-	render_map(game);
 	update_moves_counter(game);
 }
 
