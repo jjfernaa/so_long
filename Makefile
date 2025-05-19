@@ -9,35 +9,36 @@ SRCS = srcs/main.c srcs/init.c srcs/map_parser.c srcs/map_checker.c \
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = libft/libft.a
-MLX42 = MLX42/bluid/libmlx42.a
+LIBFT = Libft/libft.a
+MLX42 = MLX42/build/libmlx42.a
 
-DEPS = -lglfw -L "/opt/homebrew/Cellar/glfw/3.4/lib/" -framework Cocoa -framework OpenGL -framework IOKit
+DEPS = -lglfw -lGL
 
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MLX42) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) $(MLX42) $(DEPS) -I includes -I libft -I MLX42/includes
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) $(MLX42) $(DEPS)
+# -I includes -I Libft -I MLX42/includes
 
 %srcs/.o: srcs/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@ -I includes -I libft -I MLX42/includes
+	$(CC) $(CFLAGS) -c $< -o $@ -I includes -I Libft -I MLX42/includes
 
 $(LIBFT):
-	make -C libft
+	make -C Libft
 
 $(MLX42):
-	cmake -B MLX42/bluid MLX42
-	cmake --build MLX42/bluid -j4
+	cmake -B MLX42/build MLX42
+	cmake --build MLX42/build -j4
 
 clean:
 	rm -rf $(OBJS)
-	make -C libft clean
-	rm -rf MLX42/bluid
+	make -C Libft clean
+	rm -rf MLX42/build
 
 fclean: clean
 	rm -f $(NAME)
-	make -C libft fclean
+	make -C Libft fclean
 
 re: fclean all
 
