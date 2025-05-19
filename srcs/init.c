@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:29 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/12 22:08:16 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/17 18:16:20 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,22 @@ int	init_window(t_game *game)
 int	load_textures(t_game *game)
 {
 	game->textures.wall = mlx_load_png("textures/wall.png");
+	if (!game->textures.wall)
+		ft_putstr_fd("Error: failed to load wall.png\n", 2);
 	game->textures.empty = mlx_load_png("textures/floor.png");
+	if (!game->textures.empty)
+		ft_putstr_fd("Error: failed to load floor.png\n", 2);
 	game->textures.collectible = mlx_load_png("textures/collectible.png");
+	if (!game->textures.collectible)
+		ft_putstr_fd("Error: failed to load collectible.png\n", 2);
 	game->textures.exit = mlx_load_png("textures/exit.png");
+	if (!game->textures.exit)
+		ft_putstr_fd("Error: failed to load exit.png\n", 2);
 	game->textures.player = mlx_load_png("textures/player.png");
-	if (!game->textures.wall || !game->textures.empty
-		|| !game->textures.collectible || !game->textures.exit
+	if (!game->textures.player)
+		ft_putstr_fd("Error: failed to load player.png\n", 2);
+	if (!game->textures.wall || !game->textures.empty \
+		|| !game->textures.collectible || !game->textures.exit \
 		|| !game->textures.player)
 	{
 		ft_putstr_fd(ERR_TEXTURE, 2);
@@ -68,12 +78,22 @@ int	load_textures(t_game *game)
 int	create_images(t_game *game)
 {
 	game->images.wall = mlx_texture_to_image(game->mlx, game->textures.wall);
+	if (!game->images.wall)
+		ft_putstr_fd("Error: failed to create image wall (wall.png)\n", 2);
 	game->images.empty = mlx_texture_to_image(game->mlx, game->textures.empty);
+	if (!game->images.empty)
+		ft_putstr_fd("Error: failed to create image empty (floor.png)\n", 2);
 	game->images.collectible = \
 		mlx_texture_to_image(game->mlx, game->textures.collectible);
+	if (!game->images.collectible)
+		ft_putstr_fd("Error: failed to create image (collectible.png)\n", 2);
 	game->images.exit = mlx_texture_to_image(game->mlx, game->textures.exit);
+	if (!game->images.exit)
+		ft_putstr_fd("Error: failed to create image exit (exit.png)\n", 2);
 	game->images.player = \
 		mlx_texture_to_image(game->mlx, game->textures.player);
+	if (!game->images.player)
+		ft_putstr_fd("Error: failed to create image player (player.png)\n", 2);
 	if (!game->images.wall || !game->images.empty
 		|| !game->images.collectible || !game->images.exit
 		|| !game->images.player)
