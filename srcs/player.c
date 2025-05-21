@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:38 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 04:00:24 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/21 18:25:29 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	move_player(t_game *game, int dx, int dy)
 		{
 			game->game_over = 1;
 			ft_putstr_fd("\nCongrats! You have completed the game\n", 1);
+			mlx_close_window(game->mlx);
 			return (1);
 		}
 		return (0);
