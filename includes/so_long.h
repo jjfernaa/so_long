@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/21 23:54:20 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:02:04 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@
 # define EXIT 'E'
 # define PLAYER 'P'
 
-# define TILE_SIZE 32
-
-# define KEY_W 87
-# define KEY_A 65
-# define KEY_S 83
-# define KEY_D 68
-# define KEY_ESC 256
+# define TILE_SIZE 64
 
 # define ERR_ARGS "Error: Incorrect number of arguments\n"
-# define ERR_FILE "Error: Unable to open map file\n"
+# define ERR_FILE "Error :Unable to open map file\n"
 # define ERR_EXTENSION "Error: The map must have a .ber extension\n"
 # define ERR_MAP_INVALID "Error: Invalid map\n"
 # define ERR_MAP_NOT_RECTANGULAR "Error: The map must be rectangular\n"
@@ -47,7 +41,7 @@
 	"Error: There must be at least one collectible (C)\n"
 # define ERR_PATH "Error: There is no valid way to complete the game\n"
 # define ERR_MEMORY "Error: Memory allocation failure\n"
-# define ERR_MLX "Error: Failure to initialize MLX42\n"
+# define ERR_MLX "Error: Failure to initialize MLX42º\n"
 # define ERR_TEXTURE "Error: Could not load a texture\n"
 
 typedef struct s_position
@@ -133,5 +127,6 @@ void	free_game(t_game *game);
 void	clean_exit(t_game *game);
 void	print_error(char *error_message);
 void	handle_close(void *param);
+void	free_images(t_game *game);
 
 #endif

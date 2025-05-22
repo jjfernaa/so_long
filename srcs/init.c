@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:29 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/17 18:16:20 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:44:52 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,32 @@ int	create_images(t_game *game)
 		|| !game->images.player)
 	{
 		ft_putstr_fd("Error: Unable to create images\n", 2);
+		free_images(game);
 		return (0);
 	}
 	return (1);
+}
+
+void	free_images(t_game *game)
+{
+	if (game->images.wall)
+	{
+		mlx_delete_image(game->mlx, game->images.wall);
+	}
+	if (game->images.empty)
+	{
+		mlx_delete_image(game->mlx, game->images.empty);
+	}
+	if (game->images.collectible)
+	{
+		mlx_delete_image(game->mlx, game->images.collectible);
+	}
+	if (game->images.exit)
+	{
+		mlx_delete_image(game->mlx, game->images.exit);
+	}
+	if (game->images.player)
+	{
+		mlx_delete_image(game->mlx, game->images.player);
+	}
 }

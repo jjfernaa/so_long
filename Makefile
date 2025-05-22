@@ -42,4 +42,11 @@ fclean: clean
 
 re: fclean all
 
+val:
+	valgrind -s --leak-check=full --show-leak-kinds=all ./so_long maps/map_medium.ber
+
+
+val-sup:
+	valgrind --leak-check=full --show-leak-kinds=all --suppressions=solong.supp ./so_long maps/map_big.ber
+
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:38 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/21 23:34:54 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:39:09 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ void	hook_keys(mlx_key_data_t keydata, void *param)
 	game = (t_game *)param;
 	if (game->game_over)
 	{
-		if (keydata.key == KEY_ESC && keydata.action == MLX_PRESS)
+		if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 			mlx_close_window(game->mlx);
 		return ;
 	}
 	if (keydata.action == MLX_PRESS)
 	{
-		if (keydata.key == KEY_W)
+		if (keydata.key == MLX_KEY_W)
 			move_player(game, 0, -1);
-		else if (keydata.key == KEY_A)
+		else if (keydata.key == MLX_KEY_A)
 			move_player(game, -1, 0);
-		else if (keydata.key == KEY_S)
+		else if (keydata.key == MLX_KEY_S)
 			move_player(game, 0, 1);
-		else if (keydata.key == KEY_D)
+		else if (keydata.key == MLX_KEY_D)
 			move_player(game, 1, 0);
-		else if (keydata.key == KEY_ESC)
+		else if (keydata.key == MLX_KEY_ESCAPE)
 			mlx_close_window(game->mlx);
 	}
 }

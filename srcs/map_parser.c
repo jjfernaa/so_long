@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:36 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/21 18:21:29 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:02:38 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	read_map_file(t_game *game, char *file_path)
 	game->map.grid = NULL;
 	if (!read_lines(game, fd))
 	{
+		free_map(&game->map);
 		close(fd);
 		return (0);
 	}
