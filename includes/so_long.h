@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:43:40 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/22 22:02:04 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:50:12 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,13 @@ typedef struct s_game
 	int			game_over;	
 }	t_game;
 
+// Initialization functions
 t_game	*init_game(void);
 int		init_window(t_game *game);
 int		load_textures(t_game *game);
 int		create_images(t_game *game);
+
+// Map parsing functions
 int		parse_map(t_game *game, char *file_path);
 int		read_map_file(t_game *game, char *file_path);
 int		check_map_dimensions(t_game *game);
@@ -103,30 +106,40 @@ void	remove_newline_if_exists(char *line);
 void	count_elements(t_game *game, int x, int y, char c);
 int		read_lines(t_game *game, int fd);
 char	*get_next_line(int fd);
+
+// Map validation functions
 int		check_map_validity(t_game *game);
 int		is_surrounded_by_walls(t_game *game);
 char	**duplicate_map(t_map *map);
 int		flood_fill(char **temp_map, int x, int y, t_map *map);
 int		has_valid_path(t_game *game);
+
+// Rendering functions
 void	render_map(t_game *game);
 void	render_tile(t_game *game, int x, int y);
 void	update_player_position(t_game *game, int new_x, int new_y);
 void	update_moves_counter(t_game *game);
+
+// Player movement functions
 void	hook_keys(mlx_key_data_t keydata, void *param);
 int		move_player(t_game *game, int dx, int dy);
 int		check_collision(t_game *game, int x, int y);
 void	collect_item(t_game *game, int x, int y);
 int		check_exit(t_game *game);
-void	free_map(t_map *map);
-void	free_textures(t_textures *textures);
+
+// utility functions
 int		is_valid_map_char(char c);
 int		check_file_extension(char *file_path, char *extension);
 void	count_map_elements(t_game *game);
 int		check_element_counts(t_game *game);
+
+// Cleanup and error functions
+void	free_map(t_map *map);
+void	free_textures(t_textures *textures);
+void	free_images(t_game *game);
 void	free_game(t_game *game);
 void	clean_exit(t_game *game);
 void	print_error(char *error_message);
 void	handle_close(void *param);
-void	free_images(t_game *game);
 
 #endif

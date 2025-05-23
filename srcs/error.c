@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:26 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/17 02:08:14 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:52:09 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	clean_exit(t_game *game)
 	}
 	free_map(&game->map);
 	free(game);
-	exit(0);
+	exit (1);
 }
 
 void	print_error(char *error_message)

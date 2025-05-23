@@ -1,7 +1,7 @@
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = srcs/main.c srcs/init.c srcs/map_parser.c srcs/map_checker.c \
 	srcs/render.c srcs/player.c srcs/utils.c srcs/error.c srcs/map_utils.c \

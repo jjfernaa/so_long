@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:41 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/17 02:35:41 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:43:02 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	render_tile(t_game *game, int x, int y)
 	if (game->map.grid[y][x] == WALL)
 		mlx_image_to_window(game->mlx, game->images.wall, pixel_x, pixel_y);
 	else if (game->map.grid[y][x] == COLLECTIBLE)
-		mlx_image_to_window(game->mlx, game->images.collectible, \
+		mlx_image_to_window(game->mlx, game->images.collectible,
 			pixel_x, pixel_y);
 	else if (game->map.grid[y][x] == EXIT)
 		mlx_image_to_window(game->mlx, game->images.exit, pixel_x, pixel_y);
@@ -51,10 +51,10 @@ void	render_tile(t_game *game, int x, int y)
 
 void	update_player_position(t_game *game, int new_x, int new_y)
 {
-	mlx_image_to_window(game->mlx, game->images.empty, \
-		game->map.player_pos.x * TILE_SIZE, \
+	mlx_image_to_window(game->mlx, game->images.empty,
+		game->map.player_pos.x * TILE_SIZE,
 		game->map.player_pos.y * TILE_SIZE);
-	mlx_image_to_window(game->mlx, game->images.player, new_x * TILE_SIZE, \
+	mlx_image_to_window(game->mlx, game->images.player, new_x * TILE_SIZE,
 		new_y * TILE_SIZE);
 	game->map.grid[game->map.player_pos.y][game->map.player_pos.x] = EMPTY;
 	game->map.grid[new_y][new_x] = PLAYER;

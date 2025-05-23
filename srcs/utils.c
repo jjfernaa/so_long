@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:43 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/15 03:02:24 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:43:31 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	free_textures(t_textures *textures)
 
 int	is_valid_map_char(char c)
 {
-	return (c == EMPTY || c == WALL || c == COLLECTIBLE || c == EXIT \
+	return (c == EMPTY || c == WALL || c == COLLECTIBLE || c == EXIT
 		|| c == PLAYER);
 }
 

@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:34 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/14 02:10:09 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:40:36 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	is_surrounded_by_walls(t_game *game)
 	x = 0;
 	while (x < game->map.width)
 	{
-		if (game->map.grid[0][x] != WALL \
+		if (game->map.grid[0][x] != WALL
 			|| game->map.grid[game->map.height -1][x] != WALL)
 			return (0);
 		x++;
@@ -43,7 +43,7 @@ int	is_surrounded_by_walls(t_game *game)
 	y = 0;
 	while (y < game->map.height)
 	{
-		if (game->map.grid[y][0] != WALL \
+		if (game->map.grid[y][0] != WALL
 			|| game->map.grid[y][game->map.width - 1] != WALL)
 			return (0);
 		y++;
@@ -107,7 +107,7 @@ int	has_valid_path(t_game *game)
 	{
 		x = -1;
 		while (++x < game->map.width && v)
-			if ((game->map.grid[y][x] == COLLECTIBLE \
+			if ((game->map.grid[y][x] == COLLECTIBLE
 				|| game->map.grid[y][x] == EXIT) && t[y][x] != 'V')
 				v = 0;
 	}

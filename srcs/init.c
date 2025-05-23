@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:35:29 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/22 20:44:52 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:38:32 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	load_textures(t_game *game)
 	game->textures.player = mlx_load_png("textures/player.png");
 	if (!game->textures.player)
 		ft_putstr_fd("Error: failed to load player.png\n", 2);
-	if (!game->textures.wall || !game->textures.empty \
-		|| !game->textures.collectible || !game->textures.exit \
+	if (!game->textures.wall || !game->textures.empty
+		|| !game->textures.collectible || !game->textures.exit
 		|| !game->textures.player)
 	{
 		ft_putstr_fd(ERR_TEXTURE, 2);
@@ -83,20 +83,19 @@ int	create_images(t_game *game)
 	game->images.empty = mlx_texture_to_image(game->mlx, game->textures.empty);
 	if (!game->images.empty)
 		ft_putstr_fd("Error: failed to create image empty (floor.png)\n", 2);
-	game->images.collectible = \
-		mlx_texture_to_image(game->mlx, game->textures.collectible);
+	game->images.collectible
+		= mlx_texture_to_image(game->mlx, game->textures.collectible);
 	if (!game->images.collectible)
 		ft_putstr_fd("Error: failed to create image (collectible.png)\n", 2);
 	game->images.exit = mlx_texture_to_image(game->mlx, game->textures.exit);
 	if (!game->images.exit)
 		ft_putstr_fd("Error: failed to create image exit (exit.png)\n", 2);
-	game->images.player = \
-		mlx_texture_to_image(game->mlx, game->textures.player);
+	game->images.player
+		= mlx_texture_to_image(game->mlx, game->textures.player);
 	if (!game->images.player)
 		ft_putstr_fd("Error: failed to create image player (player.png)\n", 2);
-	if (!game->images.wall || !game->images.empty
-		|| !game->images.collectible || !game->images.exit
-		|| !game->images.player)
+	if (!game->images.wall || !game->images.empty || !game->images.collectible
+		|| !game->images.exit || !game->images.player)
 	{
 		ft_putstr_fd("Error: Unable to create images\n", 2);
 		free_images(game);
