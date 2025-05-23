@@ -6,7 +6,7 @@
 /*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 01:34:48 by juan-jof          #+#    #+#             */
-/*   Updated: 2025/05/23 17:00:30 by juan-jof         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:49:45 by juan-jof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,11 @@ int	check_element_counts(t_game *game)
 		ft_putstr_fd(ERR_MAP_PLAYER, 2);
 		return (0);
 	}
-	if (game->map.exits < 1)
+	if (game->map.exits < 1 || game->map.exits > 1)
+	{
+		ft_putstr_fd(ERR_MAP_EXIT, 2);
+		return (0);
+	}
 	{
 		ft_putstr_fd(ERR_MAP_EXIT, 2);
 		return (0);
